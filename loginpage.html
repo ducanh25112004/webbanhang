@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="login.css">
+    <title>WELCOME</title>
+</head>
+<body>
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form id="loginForm" action="">
+                    <h2>Login</h2>
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input id="emailInput" type="email" required>
+                        <label for="">Email</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input id ="passwordInput" type="password" required>
+                            <label for="">Password</label>
+                        </div>
+                        <div class="forget">
+                            <lable for=""><input type="checkbox">Remember Me   </lable>
+                            
+                        </div>
+                        <button id="loginBtn">Login</button>
+                        <script>
+                            document.getElementById('loginBtn').addEventListener('click', function(event) {
+                                // Ngăn chặn hành vi mặc định của form (chẳng hạn submit form)
+                                event.preventDefault();
+                        
+                                // Lấy giá trị của email và password
+                                const email = document.getElementById('emailInput').value;
+                                const password = document.getElementById('passwordInput').value;
+                        
+                                // Kiểm tra xem email và password có rỗng không
+                                if (email.trim() === '' || password.trim() === '') {
+                                    alert('Please enter both email and password.'); // Thông báo nếu email hoặc password trống
+                                } else {
+                                    // Nếu không rỗng, thực hiện các thao tác đăng nhập
+                                    // Ví dụ: chuyển hướng đến trang đăng nhập
+                                    window.location.href = 'home.html'; // Thay đổi thành trang đăng nhập của bạn
+                                }
+                            });
+                        </script>
+                        <div class="Register">
+                            <p>Don't have a account?   <button id="registerBtn">Register</button>
+                                <script>
+                                    document.getElementById('registerBtn').addEventListener('click', function() {
+                                        // Chuyển hướng người dùng đến trang đăng ký
+                                        window.location.href = 'registerpage.html'; // Thay đổi đường dẫn đến trang đăng ký
+                                    });
+                                </script></p>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="mycart.js"></script>
+</body>
+</html>

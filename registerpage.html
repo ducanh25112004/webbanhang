@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style type="text/css">
+        body {
+            background-image: url('img/fpt.jpg'); /* Thay thế bằng URL của hình nền bạn muốn sử dụng */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #FFF;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 60px;
+        }
+        .txt {
+            color: #FFF;
+            font-weight: bold;
+            font-size: 18px
+        }
+        .error-message {
+            color: red;
+        }
+        .panel-default {
+            background-color: rgba(255, 255, 255, 0.2); /* Màu nền trong suốt */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Đường viền trong suốt */
+            border-radius: 10px;
+        }
+        .panel-heading {
+            background-color: rgba(0, 0, 0, 0.5); /* Màu nền cho tiêu đề */
+            border-radius: 8px 8px 0 0;
+            padding: 10px 15px;
+        }
+        .panel-body {
+            padding: 20px;
+        }
+        input,
+        input:focus {
+            background-color: rgba(255, 255, 255, 0.7); /* Màu nền input */
+            color: #000; /* Màu chữ input */
+        }
+        input::placeholder {
+            color: #333; /* Màu chữ gợi ý */
+        }
+        #registerbtn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    display: flex;
+    margin: 0 auto;
+}
+
+#registerbtn:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel panel-heading txt">User Registration</div>
+                    <div class="panel-body">
+                        <form id="registrationForm">
+                            <div class="form-group">
+                                <p class="col-md-12 col-sm-6">
+                                    <label for="firstname" class="hidden-sm">First name</label>
+                                    <input type="text" id="firstname" class="form-control" placeholder="First name" pattern="[A-Za-zÀ-Ỹà-ỹ ]+" required/>
+                                    <span class="error-message" id="firstname-error"></span>
+                                </p>
+                                <p class="col-md-12 col-sm-6">
+                                    <label for="lastname" class="hidden-sm">Last name</label>
+                                    <input type="text" id="lastname" class="form-control" placeholder="Last name" pattern="[A-Za-zÀ-Ỹà-ỹ ]+" required/>
+                                    <span class="error-message" id="lastname-error"></span>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <p class="col-md-12 col-sm-12">
+                                    <label for="email" class="hidden-sm">Email address</label>
+                                    <input type="text" id="email" class="form-control" placeholder="Email address" pattern="[^ áàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/>
+                                    <span class="error-message" id="email-error"></span>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <p class="col-md-12 col-sm-6">
+                                    <label for="password" class="hidden-sm">Password</label>
+                                    <input type="password" id="password" class="form-control" placeholder="Input password" required/>
+                                </p>
+                                <p class="col-md-12 col-sm-6">
+                                    <label for="confirm" class="hidden-sm">Confirmation</label>
+                                    <input type="password" id="confirm" class="form-control" placeholder="Input confirm" required/>
+                                    <span class="error-message" id="confirm-error"></span>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12 col-sm-12">
+                                    <input type="checkbox" id="agree" required/> I agree to the terms and conditions
+                                </label>
+                            </div>
+                            <div>
+                            <button id="registerbtn">Register</button>
+                         <script>
+    // Xử lý khi người dùng nhấn nút Login
+    document.getElementById('registerbtn').addEventListener('click', function(event) {
+    // Kiểm tra các trường thông tin không được để trống
+    var firstName = document.getElementById('firstname').value;
+    var lastName = document.getElementById('lastname').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var confirm = document.getElementById('confirm').value;
+
+    if (firstName === '' || lastName === '' || email === '' || password === '' || confirm === '') {
+        alert('Please fill in all fields.'); // Thông báo lỗi nếu có trường dữ liệu trống
+        event.preventDefault(); // Ngăn chặn việc gửi biểu mẫu nếu có trường dữ liệu trống
+    } else {
+        // Nếu tất cả các trường thông tin được điền đầy đủ, tiến hành xử lý đăng ký
+        // Ví dụ: chuyển hướng đến trang đăng nhập và thông báo đăng ký thành công
+        alert('Registration successful!');
+        window.location.href = 'loginpage.html'; // Thay đổi thành trang đăng nhập của bạn
+    }
+});
+                              </script>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            function validateFirstName() {
+                var firstName = $('#firstname').val();
+                if (!/^[A-Za-zÀ-Ỹà-ỹ ]+$/.test(firstName)) {
+                    $('#firstname-error').text('Name must contain only letters');
+                    return false;
+                } else {
+                    $('#firstname-error').text('');
+                    return true;
+                }
+            }
+
+            function validateLastName() {
+                var lastName = $('#lastname').val();
+                if (!/^[A-Za-zÀ-Ỹà-ỹ ]+$/.test(lastName)) {
+                    $('#lastname-error').text('Name must contain only letters');
+                    return false;
+                } else {
+                    $('#lastname-error').text('');
+                    return true;
+                }
+            }
+
+            function validateEmail() {
+                var email = $('#email').val();
+                if (!/[^ áàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(email)) {
+                    $('#email-error').text('Email must not contain accent marks');
+                    return false;
+                } else if (email === "") {
+                    $('#email-error').text('Email cannot be empty');
+                    return false;
+                } else {
+                    $('#email-error').text('');
+                    return true;
+                }
+            }
+
+            function validatePassword() {
+                var password = $('#password').val();
+                var confirm = $('#confirm').val();
+                if (password !== confirm) {
+                    $('#confirm-error').text('Password and confirmation do not match');
+                    return false;
+                } else {
+                    $('#confirm-error').text('');
+                    return true;
+                }
+            }
+
+            $('#firstname').keyup(function() {
+                validateFirstName();
+            });
+
+            $('#lastname').keyup(function() {
+                validateLastName();
+            });
+
+            $('#email').keyup(function() {
+                validateEmail();
+            });
+
+            $('#password, #confirm').keyup(function() {
+                validatePassword();
+            });
+
+            $('#registrationForm').submit(function (event) {
+                var isValid = true;
+
+                if (!validateFirstName()) {
+                    isValid = false;
+                }
+
+                if (!validateLastName()) {
+                    isValid = false;
+                }
+
+                if (!validateEmail()) {
+                    isValid = false;
+                }
+
+                if (!validatePassword()) {
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

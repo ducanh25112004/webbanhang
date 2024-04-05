@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Contact Us</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        #contact {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .col-md-6 {
+            width: 48%;
+        }
+
+        .contact-form {
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-info {
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .follow {
+            margin-bottom: 15px;
+        }
+
+        .follow i {
+            margin-right: 5px;
+        }
+
+        .social-media a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .social-media a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="contact">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <a href="home.html" style="color: #000000; text-decoration: none; margin-bottom: 20px; display: block;">
+                Back to Home
+            </a>
+            <div class="row">
+                <div class="col-md-6">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name..">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="phone" placeholder="Phone no.">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email..">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" rows="4" placeholder="Message.."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col-md-6 contact-info">
+                    <div class="follow"><b><i class="fa fa-map-marker"></i> </b>10/55 Thuy Khue, Thuy Khue Ward, Tay
+                        Ho District, Hanoi City</div>
+                    <div class="follow"><b><i class="fa fa-mobile"></i> </b>(+84)7862097585</div>
+                    <div class="follow"><b><i class="fa fa-envelope"></i> </b>farmshop@gmail.com</div>
+
+                    <div class="follow">
+                        <label><b>Get Social </b></label>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                        <a href="https://twitter.com/login/" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://myaccount.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+<footer style="background-color: #333; color: #fff; padding: 20px 0; position: fixed; bottom: 0; width: 100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Contact Us</h4>
+                <p><i class="fa fa-map-marker"></i> 10/55 Thuy Khue, Thuy Khue Ward, Tay Ho District, Hanoi City</p>
+                <p><i class="fa fa-mobile"></i> (+84)7862097585</p>
+                <p><i class="fa fa-envelope"></i> farmshop@gmail.com</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Follow Us</h4>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                    <a href="https://twitter.com/login/" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="https://myaccount.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+</footer>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+            // Tạo một thông báo thành công
+            var successMessage = document.createElement("div");
+            successMessage.classList.add("alert", "alert-success");
+            successMessage.textContent = "Form submitted successfully!";
+
+            // Chèn thông báo vào sau form
+            var form = document.getElementById("contactForm");
+            form.insertAdjacentElement("afterend", successMessage);
+
+            // Xóa nội dung trong các trường input sau khi form được submit
+            document.getElementById("name").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+        });
+    </script>
+
+</body>
+
+</html>
